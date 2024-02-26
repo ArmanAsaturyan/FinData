@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display Input Content</title>
+</head>
+<body>
+
+<input type="text" id="inputField">
+<button id="displayButton">Display</button>
+<p id="displayParagraph"></p>
+
+<script>
+  // Get references to the input field and button
+  var inputField = document.getElementById("inputField");
+  var displayButton = document.getElementById("displayButton");
+  var displayParagraph = document.getElementById("displayParagraph");
+
+  // Add event listener to the button
+  displayButton.addEventListener("click", function() {
+    // Get the value from the input field
+    var inputValue = inputField.value;
+
+    // Display the value in the paragraph
+    displayParagraph.textContent = inputValue;
+  });
+</script>
+
+</body>
+</html>

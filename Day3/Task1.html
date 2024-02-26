@@ -1,0 +1,34 @@
+<!-- Task 7. Show/Hide a Paragraph -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hide and Show Paragraph</title>
+</head>
+<body>
+
+<p id="textParagraph">This is a paragraph of text.</p>
+<button id="toggleButton">Hide</button>
+
+<script>
+  // Get references to the paragraph and button
+  var textParagraph = document.getElementById("textParagraph");
+  var toggleButton = document.getElementById("toggleButton");
+
+  // Add event listener to the button
+  toggleButton.addEventListener("click", function() {
+    // Toggle visibility of the paragraph
+    if (textParagraph.style.display === "none") {
+      textParagraph.style.display = "block";
+      toggleButton.textContent = "Hide";
+    } else {
+      textParagraph.style.display = "none";
+      toggleButton.textContent = "Show";
+    }
+  });
+</script>
+
+</body>
+</html>

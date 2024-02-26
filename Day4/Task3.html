@@ -1,0 +1,82 @@
+<!-- Task 12. Implement a Basic Slider with Array Data -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Slider</title>
+<style>
+  /* CSS for slider container */
+  .slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  /* CSS for image */
+  .slider-image {
+    max-width: 100%;
+    max-height: 300px;
+  }
+
+  /* CSS for navigation buttons */
+  .slider-button {
+    padding: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: none;
+    outline: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="slider-container">
+  <button class="slider-button" id="prevButton">Previous</button>
+  <img class="slider-image" id="sliderImage" src="" alt="Slider Image">
+  <button class="slider-button" id="nextButton">Next</button>
+</div>
+
+<script>
+  // Array of image URLs
+  var images = [
+    "image1.jpg",
+    "image2.jpg",
+    "image3.jpg",
+    "image4.jpg"
+  ];
+
+  // Get references to elements
+  var sliderImage = document.getElementById("sliderImage");
+  var prevButton = document.getElementById("prevButton");
+  var nextButton = document.getElementById("nextButton");
+
+  // Initialize current index
+  var currentIndex = 0;
+
+  // Function to update image source
+  function updateImage() {
+    sliderImage.src = images[currentIndex];
+  }
+
+  // Add event listener to previous button
+  prevButton.addEventListener("click", function() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImage();
+  });
+
+  // Add event listener to next button
+  nextButton.addEventListener("click", function() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImage();
+  });
+
+  // Display initial image
+  updateImage();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!-- Task 2. Change Text Content on Button Click -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Text Content on Button Click</title>
+</head>
+<body>
+
+<p id="text">Original text content</p>
+<button id="btn">Change Text</button>
+
+<script>
+  // Get references to the button and paragraph elements
+  var button = document.getElementById("btn");
+  var paragraph = document.getElementById("text");
+
+  // Add event listener to the button
+  button.addEventListener("click", function() {
+    // Change the text content of the paragraph
+    paragraph.textContent = "New text content";
+  });
+</script>
+
+</body>
+</html>

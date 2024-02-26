@@ -1,0 +1,45 @@
+<!-- Task 5. Change Page Background Color -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Background Color on Button Click</title>
+<style>
+  /* CSS for button colors */
+  .color-button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<button class="color-button" id="redButton">Red</button>
+<button class="color-button" id="blueButton">Blue</button>
+<button class="color-button" id="greenButton">Green</button>
+
+<script>
+  // Get references to the buttons
+  var redButton = document.getElementById("redButton");
+  var blueButton = document.getElementById("blueButton");
+  var greenButton = document.getElementById("greenButton");
+
+  // Add event listeners to the buttons
+  redButton.addEventListener("click", function() {
+    document.body.style.backgroundColor = "red";
+  });
+
+  blueButton.addEventListener("click", function() {
+    document.body.style.backgroundColor = "blue";
+  });
+
+  greenButton.addEventListener("click", function() {
+    document.body.style.backgroundColor = "green";
+  });
+</script>
+
+</body>
+</html>

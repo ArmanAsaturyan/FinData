@@ -1,0 +1,34 @@
+<!-- Task 8. Count Button Clicks -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click Counter</title>
+</head>
+<body>
+
+<button id="clickButton">Click me</button>
+<p id="clickCount">0</p>
+
+<script>
+  // Get reference to the button and display area
+  var clickButton = document.getElementById("clickButton");
+  var clickCount = document.getElementById("clickCount");
+
+  // Initialize counter variable
+  var count = 0;
+
+  // Add event listener to the button
+  clickButton.addEventListener("click", function() {
+    // Increment the counter
+    count++;
+
+    // Update the display area with the count
+    clickCount.textContent = count;
+  });
+</script>
+
+</body>
+</html>

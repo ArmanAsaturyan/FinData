@@ -1,0 +1,29 @@
+<!-- Task 4. Toggle Button Text -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toggle Button Text</title>
+</head>
+<body>
+
+<button id="toggleButton">Hello</button>
+
+<script>
+  // Get reference to the button
+  var toggleButton = document.getElementById("toggleButton");
+
+  // Add event listener to the button
+  toggleButton.addEventListener("click", function() {
+    // Toggle the button text
+    if (toggleButton.textContent === "Hello") {
+      toggleButton.textContent = "Goodbye";
+    } else {
+      toggleButton.textContent = "Hello";
+    }
+  });
+</script>
+
+</body>
+</html>

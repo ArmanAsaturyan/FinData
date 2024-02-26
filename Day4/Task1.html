@@ -1,0 +1,53 @@
+<!-- Task 10. Change Element Colors on Hover -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Item List with Hover Effect</title>
+<style>
+  /* CSS for item list */
+  .item {
+    padding: 10px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  /* CSS for item hover effect */
+  .item:hover {
+    background-color: #ccc;
+  }
+</style>
+</head>
+<body>
+
+<ul>
+  <li class="item">Item 1</li>
+  <li class="item">Item 2</li>
+  <li class="item">Item 3</li>
+  <li class="item">Item 4</li>
+</ul>
+
+<script>
+  // Get references to all items
+  var items = document.querySelectorAll(".item");
+
+  // Add event listeners to each item
+  items.forEach(function(item) {
+    item.addEventListener("mouseover", function() {
+      // Change background color on mouseover
+      item.style.backgroundColor = "#ccc";
+    });
+
+    item.addEventListener("mouseout", function() {
+      // Change background color back to original on mouseout
+      item.style.backgroundColor = "#f0f0f0";
+    });
+  });
+</script>
+
+</body>
+</html>
