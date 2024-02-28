@@ -1,0 +1,75 @@
+<!-- Task 13. Tabbed Interface with Dynamic Content Loading -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabbed Interface</title>
+<style>
+  /* CSS for tabs */
+  .tab {
+    display: none;
+  }
+
+  /* CSS for active tab */
+  .active {
+    display: block;
+  }
+
+  /* CSS for tab buttons */
+  .tab-button {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: none;
+    outline: none;
+  }
+</style>
+</head>
+<body>
+
+<div id="tabs">
+  <button class="tab-button" onclick="openTab('tab1')">Tab 1</button>
+  <button class="tab-button" onclick="openTab('tab2')">Tab 2</button>
+  <button class="tab-button" onclick="openTab('tab3')">Tab 3</button>
+</div>
+
+<div id="tab1" class="tab">
+  <h2>Tab 1 Content</h2>
+  <p>This is the content for tab 1.</p>
+</div>
+
+<div id="tab2" class="tab">
+  <h2>Tab 2 Content</h2>
+  <p>This is the content for tab 2.</p>
+</div>
+
+<div id="tab3" class="tab">
+  <h2>Tab 3 Content</h2>
+  <p>This is the content for tab 3.</p>
+</div>
+
+<script>
+  // Function to open a tab
+  function openTab(tabId) {
+    // Get all tabs and tab buttons
+    var tabs = document.getElementsByClassName("tab");
+    var tabButtons = document.getElementsByClassName("tab-button");
+
+    // Hide all tabs and remove active class from tab buttons
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].style.display = "none";
+      tabButtons[i].classList.remove("active");
+    }
+
+    // Show the selected tab and add active class to the corresponding tab button
+    document.getElementById(tabId).style.display = "block";
+    document.querySelector("[onclick*='" + tabId + "']").classList.add("active");
+  }
+
+  // Display the initial tab
+  openTab('tab1');
+</script>
+
+</body>
+</html>

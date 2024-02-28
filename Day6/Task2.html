@@ -1,0 +1,78 @@
+<!-- Task 17. Nested Comments Display with Recursive Function -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nested Comments Display</title>
+<style>
+  .comment {
+    margin-left: 20px; /* Adjust indentation */
+    border-left: 2px solid #ccc; /* Add border to visually represent nesting */
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div id="commentsContainer">
+  <!-- Comments will be dynamically generated here -->
+</div>
+
+<script>
+  const comments = [
+    {
+      id: 1,
+      text: "This is the first comment",
+      parentId: null,
+      replies: [
+        {
+          id: 2,
+          text: "This is a reply to the first comment",
+          parentId: 1,
+          replies: [
+            {
+              id: 3,
+              text: "This is a nested reply",
+              parentId: 2,
+              replies: [] // Further nesting possible
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: 4,
+      text: "This is an independent comment",
+      parentId: null,
+      replies: []
+    }
+    // Additional comment objects...
+  ];
+
+  // Function to generate nested comments HTML recursively
+  function generateComments(comments, parentElement, nestingLevel) {
+    comments.forEach(comment => {
+      const commentElement = document.createElement("div");
+      commentElement.classList.add("comment");
+      commentElement.textContent = comment.text;
+      parentElement.appendChild(commentElement);
+
+      // Recursively handle replies
+      if (comment.replies.length > 0) {
+        generateComments(comment.replies, commentElement, nestingLevel + 1);
+      }
+    });
+  }
+
+  // Get reference to comments container
+  const commentsContainer = document.getElementById("commentsContainer");
+
+  // Start the recursive generation with top-level comments
+  generateComments(comments, commentsContainer, 0);
+</script>
+
+</body>
+</html>

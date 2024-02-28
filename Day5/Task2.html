@@ -1,0 +1,74 @@
+<!-- Task 14. Form Auto-Save to LocalStorage -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Auto-Save</title>
+</head>
+<body>
+
+<form id="myForm">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name"><br>
+
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email"><br>
+
+  <label for="message">Message:</label><br>
+  <textarea id="message" name="message"></textarea><br>
+</form>
+
+<script>
+  // Get references to form elements
+  var myForm = document.getElementById("myForm");
+  var nameInput = document.getElementById("name");
+  var emailInput = document.getElementById("email");
+  var messageInput = document.getElementById("message");
+
+  // Throttle function to limit the rate of execution
+  function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    };
+  }
+
+  // Function to save form data to localStorage
+  function saveFormData() {
+    const formData = {
+      name: nameInput.value,
+      email: emailInput.value,
+      message: messageInput.value
+    };
+    localStorage.setItem("formData", JSON.stringify(formData));
+  }
+
+  // Function to restore form data from localStorage
+  function restoreFormData() {
+    const formData = JSON.parse(localStorage.getItem("formData"));
+    if (formData) {
+      nameInput.value = formData.name;
+      emailInput.value = formData.email;
+      messageInput.value = formData.message;
+    }
+  }
+
+  // Add event listeners to form fields for input events with throttling
+  nameInput.addEventListener("input", throttle(saveFormData, 1000));
+  emailInput.addEventListener("input", throttle(saveFormData, 1000));
+  messageInput.addEventListener("input", throttle(saveFormData, 1000));
+
+  // Restore form data from localStorage on page load
+  window.addEventListener("load", restoreFormData);
+</script>
+
+</body>
+</html>

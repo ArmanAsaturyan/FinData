@@ -1,0 +1,106 @@
+Task 16. Dynamic Table Generation from Object Array with Complex Data
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Table</title>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+
+<table id="employeeTable">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Department</th>
+      <th>Role Title</th>
+      <th>Role Level</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Skills</th>
+    </tr>
+  </thead>
+  <tbody id="employeeTableBody">
+    <!-- Table rows will be dynamically generated here -->
+  </tbody>
+</table>
+
+<script>
+  const employees = [
+    {
+      id: 1,
+      name: "John Doe",
+      age: 30,
+      department: "Engineering",
+      role: { title: "Frontend Developer", level: "Mid" },
+      contact: { email: "john.doe@example.com", phone: "123-456-7890" },
+      skills: ["JavaScript", "React", "CSS"]
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      age: 28,
+      department: "Design",
+      role: { title: "UI/UX Designer", level: "Senior" },
+      contact: { email: "jane.smith@example.com", phone: "098-765-4321" },
+      skills: ["Figma", "Sketch", "Adobe XD"]
+    }
+    // Additional employee objects...
+  ];
+
+  const tableBody = document.getElementById("employeeTableBody");
+
+  // Function to generate table rows dynamically
+  function generateTableRows() {
+    tableBody.innerHTML = ""; // Clear previous rows
+
+    employees.forEach(employee => {
+      const row = document.createElement("tr");
+
+      // Populate cells with employee data
+      const cells = [
+        employee.id,
+        employee.name,
+        employee.age,
+        employee.department,
+        employee.role.title,
+        employee.role.level,
+        employee.contact.email,
+        employee.contact.phone,
+        employee.skills.join(", ")
+      ];
+
+      cells.forEach(cellData => {
+        const cell = document.createElement("td");
+        cell.textContent = cellData;
+        row.appendChild(cell);
+      });
+
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Generate table rows on page load
+  window.onload = generateTableRows;
+</script>
+
+</body>
+</html>

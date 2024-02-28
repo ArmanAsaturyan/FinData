@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Navigation Menu</title>
+<style>
+  /* CSS for menu */
+  .menu {
+    display: none;
+  }
+
+  /* CSS for hamburger icon */
+  .hamburger {
+    cursor: pointer;
+  }
+
+  /* CSS for menu links */
+  .menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+
+  /* CSS for responsive design */
+  @media screen and (max-width: 600px) {
+    .menu.open {
+      display: block;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hamburger icon -->
+<div class="hamburger" id="hamburger">&#9776;</div>
+
+<!-- Navigation menu -->
+<div class="menu" id="menu">
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Contact</a>
+</div>
+
+<script>
+  // Get references to menu elements
+  var hamburger = document.getElementById("hamburger");
+  var menu = document.getElementById("menu");
+
+  // Add event listener to hamburger icon for toggle menu visibility
+  hamburger.addEventListener("click", function() {
+    menu.classList.toggle("open");
+  });
+</script>
+
+</body>
+</html>
